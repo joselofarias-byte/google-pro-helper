@@ -5,8 +5,8 @@
   if (window.__GAPT_GUARD || window.top === window) return; // 只在子框架里跑
   window.__GAPT_GUARD = true;
 
-  const FREE_WORDS = ["free trial", "start your free trial", "免费试用", "US$0.00", "$0.00", "0,00", "€0.00", "won't be charged", "不会向您收费", "不会收费"];
-  const PAID_WORDS = ["/mo after", "/month after", "per month after", "立即付款", "pay now", "今日扣款", "charged today"];
+  const FREE_WORDS = ["free trial", "start your free trial", "免费试用", "US$0.00", "$0.00", "0,00", "€0.00", "won't be charged", "prueba gratuita", "sin cargo", "no se te cobrará", "不会向您收费", "不会收费"];
+  const PAID_WORDS = ["/mo after", "/month after", "per month after", "立即付款", "pay now", "pagar ahora", "se cobrará hoy", "cobro inmediato", "今日扣款", "charged today"];
 
   let bar = null;
   function paint(kind, text) {
