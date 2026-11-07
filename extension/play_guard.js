@@ -1,8 +1,8 @@
-/* Xi · Google AI Pro Offer Injector — 结账弹窗价格守卫
- * 作用：在 Play 结账 iframe 里读真实条款，绿条=免费试用可点，红条=要扣钱别点。
+/* Xi · Google AI Pro Offer Injector — Verificador de precios del diálogo de pago
+ * Lee las condiciones del diálogo de Google Play. Verde: posible promoción; rojo: posible cobro.
  */
 (() => {
-  if (window.__GAPT_GUARD || window.top === window) return; // 只在子框架里跑
+  if (window.__GAPT_GUARD || window.top === window) return; // Solo ejecutar dentro de un iframe
   window.__GAPT_GUARD = true;
 
   const FREE_WORDS = ["free trial", "start your free trial", "免费试用", "US$0.00", "$0.00", "0,00", "€0.00", "won't be charged", "prueba gratuita", "sin cargo", "no se te cobrará", "不会向您收费", "不会收费"];
