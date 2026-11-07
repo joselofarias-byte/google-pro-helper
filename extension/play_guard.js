@@ -34,13 +34,13 @@
     const paid = PAID_WORDS.some((w) => t.includes(w.toLowerCase()));
 
     if (free && !paid) {
-      paint("ok", "✅ 检测到免费试用 —— 本弹窗可安全订阅（请自己再核对金额为 $0.00）");
+      paint("ok", "✅ Se encontró una referencia a prueba gratuita. Verificá el importe y las condiciones antes de confirmar.");
     } else if (paid && !free) {
-      paint("bad", "❌ 未检出免费试用，可能是真扣费 —— 先别点订阅，返回换层重试");
+      paint("bad", "❌ No se identificó una prueba gratuita; podría haber un cobro. No confirmes sin verificar.");
     } else if (free && paid) {
-      paint("warn", "⚠️ 条款同时出现免费与付费字样 —— 请人工确认金额后再点");
+      paint("warn", "⚠️ Se detectaron referencias a cargos y promociones. Revisá el importe manualmente.");
     } else {
-      paint("warn", "… 未识别到价格条款（可能在加载中）");
+      paint("warn", "… No se reconocieron las condiciones de precio; es posible que todavía estén cargando.");
     }
   }
 
