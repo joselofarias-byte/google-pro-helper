@@ -718,7 +718,7 @@ class GoogleUltraAutomator:
                     continue
                 opt = page_obj.locator("text=/确认您的辅助邮箱|Confirm your recovery email/i").first
                 if await opt.count() > 0 and await opt.is_visible():
-                    self.log("Seleccionando[Confirmar correo de recuperación]verificación方式...")
+                    self.log("Seleccionando método de verificación mediante correo de recuperación...")
                     await opt.click(force=True)
                     await asyncio.sleep(3.5)
                     continue
@@ -1563,7 +1563,7 @@ class GoogleUltraAutomator:
         play_after = await self.inspect_play_subscriptions(page)
         if "2028" not in play_after:
             raise RuntimeError("Step 4 El diálogo se cerró, pero el vencimiento no avanzó hasta[2028año]!")
-        self.log("✅ Step 4 (US$0.00 sin costoextensión至 2028 añodos años期) Verificación correcta!")
+        self.log("✅ Step 4 (US$0.00 sin costo hasta 2028, período de dos años) Verificación correcta!")
 
     async def step5_cancel_and_verify(self, page):
         self.update_state(status="running", current_step=5, step_message="Step 5/5: Cancelando renovación automática y verificando 2028 añofecha de vencimiento (US$0.00 captura de verificación)...")
