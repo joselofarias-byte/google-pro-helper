@@ -29,7 +29,7 @@ chrome.storage.local.get(["gapt_layer"], (r) => {
     el.addEventListener("change", () => {
       if (!el.checked) return;
       chrome.storage.local.set({ gapt_layer: el.value }, () => {
-        // 热更新到当前标签页
+        // Actualizar la pestaña activa
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           const t = tabs && tabs[0];
           if (!t) return queryTab();
