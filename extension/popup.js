@@ -1,5 +1,5 @@
 /* popup.js */
-const LABELS = { off: "未启用", "12m": "12 个月", "6m_ss": "6 个月（SS）", "6m": "6 个月", "6m_2": "6 个月（备）" };
+const LABELS = { off: "Desactivado", "12m": "12 meses", "6m_ss": "6 meses (SS)", "6m": "6 meses", "6m_2": "6 meses (reserva)" };
 const stateEl = document.getElementById("state");
 
 function paintState(st) {
@@ -7,8 +7,8 @@ function paintState(st) {
   const mounted = !!(st && st.mounted) && layer !== "off";
   stateEl.className = mounted ? "ok" : "warn";
   stateEl.textContent = mounted
-    ? "已挂载：" + (LABELS[layer] || layer) + " —— 可以点 Get discount 了"
-    : "当前页面未检测到注入（确认在 one.google.com/plans 页并刷新）";
+    ? "Extensión activa: " + (LABELS[layer] || layer) + " — revisá las condiciones de la oferta"
+    : "No se detecta la extensión en esta página. Abrí one.google.com/plans y actualizá.";
 }
 
 function queryTab() {
