@@ -601,7 +601,7 @@ class GoogleUltraAutomator:
                 continue
 
             if "confirmidentifier" in page_obj.url:
-                self.log("Detectado: confirmidentifier 页面，Haciendo clic en【Continuar/Next】...")
+                self.log("Detectado: confirmidentifier página, Haciendo clic en[Continuar/Next]...")
                 nxt_btn = page_obj.locator('#identifierNext button, button:has-text("下一步"), button:has-text("Next"), #identifierNext').first
                 if await nxt_btn.count() > 0:
                     try:
@@ -718,7 +718,7 @@ class GoogleUltraAutomator:
                     continue
                 opt = page_obj.locator("text=/确认您的辅助邮箱|Confirm your recovery email/i").first
                 if await opt.count() > 0 and await opt.is_visible():
-                    self.log("选择【Confirmar correo de recuperación】验证方式...")
+                    self.log("Seleccionando[Confirmar correo de recuperación]verificación方式...")
                     await opt.click(force=True)
                     await asyncio.sleep(3.5)
                     continue
@@ -898,7 +898,7 @@ class GoogleUltraAutomator:
         except Exception:
             body = ""
         if "重新订阅" in body:
-            self.log("Detectado:La suscripción actual está【cancelada】状态，Haciendo clic en【Volver a suscribirse】para reactivar y continuar...")
+            self.log("Detectado:La suscripción actual está[cancelada]estado, Haciendo clic en[Volver a suscribirse]para reactivar y continuar...")
             rbtn = page.get_by_text("重新订阅", exact=True).first
             if await rbtn.count() > 0:
                 await rbtn.click(force=True)
@@ -1221,7 +1221,7 @@ class GoogleUltraAutomator:
             try:
                 btxt = (await b.inner_text()).strip()
                 if btxt in ("订阅", "Subscribe"):
-                    self.log(f"--> Haciendo clic en [{step_tag}] 的【{btxt}】botón...")
+                    self.log(f"--> Haciendo clic en [{step_tag}]  de [{btxt}]botón...")
                     try:
                         await b.scroll_into_view_if_needed(timeout=3000)
                         await b.click(timeout=5000)
@@ -1252,7 +1252,7 @@ class GoogleUltraAutomator:
             }"""
             )
             if js_clicked:
-                self.log(f"--> Se activó mediante evento JavaScript [{step_tag}] 的【Suscribirse/Subscribe】botón点击！")
+                self.log(f"--> Se activó mediante evento JavaScript [{step_tag}]  de [Suscribirse/Subscribe]botónclic!")
                 clicked = True
 
         if not clicked:
@@ -1438,7 +1438,7 @@ class GoogleUltraAutomator:
                     await self.save_screenshot(page, f"{step_tag}_after_click")
                     await asyncio.sleep(4.0)
                     return True
-                self.log(f"⚠️ [{step_tag}] El diálogo se cerró sin detectar【Suscrito/Play积分】confirmación inequívoca，Comprobando estado de suscripción...")
+                self.log(f"⚠️ [{step_tag}] El diálogo se cerró sin detectar[Suscrito/Playpuntos]confirmación inequívoca, Comprobando estado de suscripción...")
                 await asyncio.sleep(5.0)
                 await self.save_screenshot(page, f"{step_tag}_after_click")
                 post_click_err = "结账弹窗已关闭但未出现【已订阅】确认标志，疑似后台卡单 (应收款)"
@@ -1454,17 +1454,17 @@ class GoogleUltraAutomator:
         return False
 
     async def step2_layer1_12m(self, page):
-        self.update_state(status="running", current_step=2, step_message="Step 2/5: Ejecutando primera etapa 12mesespromoción adicional (US$0.00 -> 2027年10月)...")
-        self.log("=== Step 2/5: 执行首层 12mesespromoción + YouTube 1M 试用 (US$0.00 sin cargo) ===")
+        self.update_state(status="running", current_step=2, step_message="Step 2/5: Ejecutando primera etapa 12 meses - promoción adicional (US$0.00 -> 2027año10mes)...")
+        self.log("=== Step 2/5: Ejecutando primera etapa 12 meses - promoción + YouTube 1M prueba (US$0.00 sin cargo) ===")
 
         play_txt = await self.inspect_play_subscriptions(page)
         if "2028" in play_txt:
-            self.log("✅ Detectado:Esta cuenta ya alcanzó 2028 年免费期，Omitiendo automáticamente Step 2！")
+            self.log("✅ Detectado:Esta cuenta ya alcanzó 2028 añoperíodo promocional, Omitiendo automáticamente Step 2!")
             return
         if any(k in play_txt for k in ("2027年10月", "2027年11月", "2027年12月", "Oct 2027", "Nov 2027", "Dec 2027")):
             if "重新订阅" in play_txt:
                 await self.ensure_subscription_active(page)
-            self.log("✅ Detectado:Esta cuenta ya completó首层 12 mesespromoción adicional，Omitiendo automáticamente Step 2！")
+            self.log("✅ Detectado:Esta cuenta ya completóprimera etapa 12  meses - promoción adicional, Omitiendo automáticamente Step 2!")
             return
 
         if "重新订阅" in play_txt:
@@ -1488,19 +1488,19 @@ class GoogleUltraAutomator:
             await asyncio.sleep(3.0)
             ok = await self.open_and_click_subscribe(page, cfg_l1, "step2_layer1_12m")
         if not ok:
-            raise RuntimeError(f"Step 2 (首层 12mesespromoción adicional US$0.00) No se completó: {self.last_subscribe_error}")
-        self.log("✅ Step 2 (首层 12mesespromoción US$0.00) Suscribirse完成！Esperando 45 segundospara sincronizar Google Play...")
+            raise RuntimeError(f"Step 2 (primera etapa 12 meses - promoción adicional US$0.00) No se completó: {self.last_subscribe_error}")
+        self.log("✅ Step 2 (primera etapa 12 meses - promoción US$0.00) Suscribirsecompletado!Esperando 45  segundos para sincronizar Google Play...")
         await asyncio.sleep(45)
 
     async def step3_layer2_6mss(self, page):
-        self.update_state(status="running", current_step=3, step_message="Step 3/5: Ejecutando segunda etapa 6mesespromoción adicional (US$0.00 -> 18meses / 2028年4月)...")
-        self.log("=== Step 3/5: 执行二层 6mesespromoción (S25 Pro 6M + YT 1M 试用, US$0.00) extensión sucesiva ===")
+        self.update_state(status="running", current_step=3, step_message="Step 3/5: Ejecutando segunda etapa 6 meses - promoción adicional (US$0.00 -> 18meses / 2028año4mes)...")
+        self.log("=== Step 3/5: Ejecutando segunda etapa 6 meses - promoción (S25 Pro 6M + YT 1M prueba, US$0.00) extensión sucesiva ===")
 
         play_txt = await self.inspect_play_subscriptions(page)
         if any(k in play_txt for k in ("2028年4月", "2028年5月", "2028年6月", "2028年10月", "2028年11月", "2028年12月", "Apr 2028", "May 2028", "Oct 2028", "Nov 2028", "Dec 2028")):
             if "重新订阅" in play_txt and not any(k in play_txt for k in ("2028年10月", "2028年11月", "2028年12月", "Oct 2028", "Nov 2028", "Dec 2028")):
                 await self.ensure_subscription_active(page)
-            self.log("✅ Detectado:Esta cuenta ya alcanzó 2028 年 (≥18meses)，Omitiendo automáticamente Step 3！")
+            self.log("✅ Detectado:Esta cuenta ya alcanzó 2028 año (≥18meses), Omitiendo automáticamente Step 3!")
             return
 
         if "重新订阅" in play_txt:
@@ -1522,17 +1522,17 @@ class GoogleUltraAutomator:
             await asyncio.sleep(3.0)
             ok = await self.open_and_click_subscribe(page, cfg_l2, "step3_layer2_6mss")
         if not ok:
-            raise RuntimeError(f"Step 3 (二层 6mesespromoción adicional US$0.00) No se completó: {self.last_subscribe_error}")
-        self.log("✅ Step 3 (二层 6mesespromoción US$0.00 -> 18meses) Extensión completada！等待 45 segundossincronizar identificador de suscripción...")
+            raise RuntimeError(f"Step 3 (segunda etapa 6 meses - promoción adicional US$0.00) No se completó: {self.last_subscribe_error}")
+        self.log("✅ Step 3 (segunda etapa 6 meses - promoción US$0.00 -> 18meses) Extensión completada!Esperando 45  segundos para sincronizar identificador de suscripción...")
         await asyncio.sleep(45)
 
     async def step4_layer3_6m(self, page):
-        self.update_state(status="running", current_step=4, step_message="Step 4/5: Ejecutando tercera etapa 6mesespromoción final (US$0.00 -> 24meses / 2028年10月)...")
-        self.log("=== Step 4/5: 执行三层 6mesespromoción封顶 (Pixel 6M + YT 1M 试用, US$0.00 -> 24meses) ===")
+        self.update_state(status="running", current_step=4, step_message="Step 4/5: Ejecutando tercera etapa 6 meses - promoción final (US$0.00 -> 24meses / 2028año10mes)...")
+        self.log("=== Step 4/5: Ejecutando tercera etapa 6 meses - promociónfinal (Pixel 6M + YT 1M prueba, US$0.00 -> 24meses) ===")
 
         play_txt = await self.inspect_play_subscriptions(page)
         if any(k in play_txt for k in ("2028年10月", "2028年11月", "2028年12月", "Oct 2028", "Nov 2028", "Dec 2028")):
-            self.log("✅ Detectado:Esta cuenta ya alcanzó 24 meses免费期 (2028年10-12月)，Omitiendo automáticamente Step 4！")
+            self.log("✅ Detectado:Esta cuenta ya alcanzó 24 mesesperíodo promocional (2028año10-12mes), Omitiendo automáticamente Step 4!")
             return
 
         if "重新订阅" in play_txt:
@@ -1556,18 +1556,18 @@ class GoogleUltraAutomator:
             await asyncio.sleep(3.0)
 
         if not ok:
-            raise RuntimeError(f"Step 4 (三层 6mesespromoción final US$0.00) No se completó: {self.last_subscribe_error}")
+            raise RuntimeError(f"Step 4 (tercera etapa 6 meses - promoción final US$0.00) No se completó: {self.last_subscribe_error}")
 
-        self.log("✅ Step 4 (三层 6mesespromoción US$0.00 -> 24meses封顶) Extensión completada！等待 40 segundossincronizar vencimiento final...")
+        self.log("✅ Step 4 (tercera etapa 6 meses - promoción US$0.00 -> 24mesesfinal) Extensión completada!Esperando 40  segundos para sincronizar vencimiento final...")
         await asyncio.sleep(40)
         play_after = await self.inspect_play_subscriptions(page)
         if "2028" not in play_after:
-            raise RuntimeError("Step 4 El diálogo se cerró, pero el vencimiento no avanzó hasta【2028年】！")
-        self.log("✅ Step 4 (US$0.00 sin costo叠加至 2028 年两年期) Verificación correcta！")
+            raise RuntimeError("Step 4 El diálogo se cerró, pero el vencimiento no avanzó hasta[2028año]!")
+        self.log("✅ Step 4 (US$0.00 sin costoextensión至 2028 añodos años期) Verificación correcta!")
 
     async def step5_cancel_and_verify(self, page):
-        self.update_state(status="running", current_step=5, step_message="Step 5/5: Cancelando renovación automática y verificando 2028 年fecha de vencimiento (US$0.00 captura de verificación)...")
-        self.log("=== Step 5/5: Cancelación automática de renovación & Capturando comprobante final de 2028 年fecha de vencimientocomprobante ===")
+        self.update_state(status="running", current_step=5, step_message="Step 5/5: Cancelando renovación automática y verificando 2028 añofecha de vencimiento (US$0.00 captura de verificación)...")
+        self.log("=== Step 5/5: Cancelación automática de renovación & Capturando comprobante final de 2028 añofecha de vencimientocomprobante ===")
 
         await self.safe_goto(page, "https://play.google.com/store/account/subscriptions?hl=zh-CN", timeout=40000)
         await asyncio.sleep(4)
@@ -1661,7 +1661,7 @@ class GoogleUltraAutomator:
             expiry_date=exp_str,
             last_screenshot=final_shot,
         )
-        self.log(f"🎉 账号 {self.account['email']} sin costo两年 Pro Proceso completado！Plan: {plan_found}，Vencimiento: {exp_str}")
+        self.log(f"🎉 cuenta {self.account['email']} sin costodos años Pro Proceso completado!Plan: {plan_found}, Vencimiento: {exp_str}")
 
     # Keep step7_cancel_and_verify alias for compatibility
     step7_cancel_and_verify = step5_cancel_and_verify
