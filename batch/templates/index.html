@@ -1497,7 +1497,7 @@
                 <label for="cfgTargetPlan">Plan de ejecución</label
                 ><select id="cfgTargetPlan">
                   <option value="pro_2year_zero">
-                    Google AI Pro · 24 个Mes / 5 TB
+                    Google AI Pro · 24 meses / 5 TB
                   </option>
                 </select>
               </div>
@@ -1545,7 +1545,7 @@
                 ><input type="text" id="cfgAddr" placeholder="Address Line 1" />
               </div>
               <div class="form-group">
-                <label for="cfgZip"> Código postal / 州</label>
+                <label for="cfgZip">Código postal / Estado</label>
                 <div class="input-pair">
                   <input
                     type="text"
@@ -1884,9 +1884,9 @@
                     onchange="selectedStartSteps['${acc.id}'] = parseInt(this.value)"
                   >
                     <option value="1" ${savedStart === 1 ? "selected" : ""}>Desde el paso 1 proceso completo</option>
-                    <option value="2" ${savedStart === 2 ? "selected" : ""}>Desde el paso 2 首层12M($0)</option>
-                    <option value="3" ${savedStart === 3 ? "selected" : ""}>Desde el paso 3 二层6M($0)</option>
-                    <option value="4" ${savedStart === 4 ? "selected" : ""}>Desde el paso 4 三层封顶($0)</option>
+                    <option value="2" ${savedStart === 2 ? "selected" : ""}>Desde el paso 2 primera etapa 12 meses($0)</option>
+                    <option value="3" ${savedStart === 3 ? "selected" : ""}>Desde el paso 3 segunda etapa 6 meses($0)</option>
+                    <option value="4" ${savedStart === 4 ? "selected" : ""}>Desde el paso 4 tercera etapa($0)</option>
                     <option value="5" ${savedStart === 5 ? "selected" : ""}>Desde el paso 5 cancelación de renovación</option>
                   </select>
                   <button
