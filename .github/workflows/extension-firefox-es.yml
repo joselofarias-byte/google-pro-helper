@@ -1,0 +1,39 @@
+name: Extension Firefox ES
+on:
+  push:
+    branches: [feature/interfaz-es-20261107]
+    paths:
+      - 'extension/**'
+      - '.github/workflows/extension-firefox-es.yml'
+  workflow_dispatch:
+jobs:
+  empaquetar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir XPI de Firefox
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, zipfile
+          root=pathlib.Path('extension')
+          manifest=json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          manifest['browser_specific_settings']={'gecko':{'id':'google-pro-helper-es@jolufasoft.com','strict_min_version':'128.0'}}
+          manifest['name']='Google AI Pro - Español (Firefox)'
+          manifest['version']='1.0.2'
+          out=pathlib.Path('Google-Pro-Helper-Firefox-ES.xpi')
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
+              z.writestr('manifest.json',json.dumps(manifest,ensure_ascii=False,indent=2))
+              for p in root.rglob('*'):
+                  if p.is_file() and p.name!='manifest.json':
+                      z.write(p,p.relative_to(root).as_posix())
+          with zipfile.ZipFile(out) as z:
+              assert 'manifest.json' in z.namelist()
+              assert 'popup.html' in z.namelist()
+          print('XPI generado')
+          PY
+          for f in extension/*.js; do node --check "$f"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Google-Pro-Helper-Firefox-ES-XPI
+          path: Google-Pro-Helper-Firefox-ES.xpi
+          retention-days: 30
