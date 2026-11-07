@@ -1,0 +1,33 @@
+name: Validar traduccion espanola
+on:
+  push:
+    branches: [feature/interfaz-es-20261107]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Comprobar sintaxis Python
+        run: python -m compileall -q batch
+      - name: Comprobar sintaxis JavaScript
+        shell: bash
+        run: |
+          set -e
+          for f in extension/*.js; do node --check "$f"; done
+      - name: Comprobar textos de interfaz
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          for f in ['extension/popup.html', 'extension/popup.js', 'batch/templates/index.html', 'batch/app.py']:
+              s=Path(f).read_text(encoding='utf-8')
+              assert not re.search(r'[\u3400-\u9fff]',s), f'Texto chino visible pendiente en {f}'
+          assert 'lang="es"' in Path('batch/templates/index.html').read_text(encoding='utf-8')
+          assert 'lang="es"' in Path('extension/popup.html').read_text(encoding='utf-8')
+          print('Comprobaciones de interfaz superadas')
+          PY
