@@ -162,7 +162,7 @@ async def test_proxy(req: ProxyTestReq):
     region = (req.target_region or cfg.get("target_region") or "TR").upper()
     resolved = resolve_account_proxy({"id": f"probe{int(time.time())%1000}", "email": "probe@gmail.com"}, region, tpl)
     if not resolved:
-        return {"ok": False, "message": "未填写Plantilla de proxy"}
+        return {"ok": False, "message": "No se configuró una plantilla de proxy"}
 
     def _sync_probe():
         import urllib.request
