@@ -1,5 +1,5 @@
 /* Xi · Google AI Pro Offer Injector — MAIN world
- * 在 one.google.com 内劫持 Play 结账请求，把订阅商品替换为指定 offer token。
+ * Intercepta solicitudes de pago en one.google.com y aplica la configuración de la oferta.
  */
 (() => {
   if (window.__GAPT_HOOKED) return;
@@ -30,7 +30,7 @@
     };
   }
 
-  /* ---------- 页面右下角状态条 ---------- */
+  /* ---------- Indicador de estado en la esquina inferior derecha ---------- */
   let badge = null;
   function showBadge(text, color) {
     try {
@@ -56,7 +56,7 @@
     }
   }
 
-  /* ---------- 请求改写 ---------- */
+  /* ---------- Reescritura de solicitudes ---------- */
   function patchNode(node) {
     if (!Array.isArray(node) || !currentTest || !Array.isArray(currentTest.full_items)) return false;
     let patched = false;
@@ -176,7 +176,7 @@
     return origSetAttr.call(this, name, val);
   };
 
-  /* ---------- 接收配置 ---------- */
+  /* ---------- Recepción de configuración ---------- */
   function applyLayer(layer) {
     const cfg = makeCfg(layer);
     currentTest = cfg ? Object.assign({ layer: layer }, cfg) : null;
@@ -199,7 +199,7 @@
     }
   });
 
-  // 首次读取（content.js 也会 post 一次）
+  // Lectura inicial (content.js también envía una actualización)
   const attrCfg = document.documentElement.getAttribute("data-gapt-layer");
   applyLayer(attrCfg || "off");
   document.addEventListener("DOMContentLoaded", refreshBadge);
