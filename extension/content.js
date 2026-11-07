@@ -1,4 +1,4 @@
-/* Xi · Google AI Pro Offer Injector — content script（隔离世界，负责传配置 / 回状态） */
+/* Xi · Google AI Pro Offer Injector — script de contenido (envía configuración y recibe estados) */
 (() => {
   let lastState = { layer: "off", mounted: false };
 
@@ -17,13 +17,13 @@
     }
   }
 
-  // MAIN world 回报状态
+  // El contexto principal informa el estado
   window.addEventListener("message", (ev) => {
     const d = ev.data;
     if (d && d.__gapt === 1 && d.type === "state" && d.state) lastState = d.state;
   });
 
-  // popup 查询状态 / 改配置后立即热更新
+  // El panel consulta el estado y actualiza la configuración
   try {
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       if (!msg) return;
@@ -44,7 +44,7 @@
   } catch (e) {}
 
   loadAndPush();
-  // 页面 SPA 切路由后再推一次，防止 hook 之后才挂载
+  // Reenviar configuración cuando cambia la ruta SPA
   setTimeout(loadAndPush, 800);
   setTimeout(loadAndPush, 2500);
 })();

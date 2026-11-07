@@ -1,0 +1,39 @@
+name: Extension Quetta ES
+on:
+  push:
+    branches: [feature/interfaz-es-20261107]
+    paths:
+      - 'extension/**'
+      - '.github/workflows/extension-quetta-es.yml'
+  workflow_dispatch:
+jobs:
+  empaquetar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar y empaquetar extension independiente
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib, zipfile
+          root=pathlib.Path("extension")
+          manifest=json.loads((root/"manifest.json").read_text(encoding="utf-8"))
+          assert manifest["manifest_version"] == 3
+          files=[p for p in root.rglob("*") if p.is_file()]
+          assert all((root/p).exists() for p in ("popup.html","popup.js","content.js","inject.js","play_guard.js"))
+          out=pathlib.Path("Google-Pro-Helper-Quetta-ES.zip")
+          with zipfile.ZipFile(out,"w",zipfile.ZIP_DEFLATED) as z:
+              for f in files:
+                  z.write(f,f.relative_to(root).as_posix())
+          with zipfile.ZipFile(out) as z:
+              assert "manifest.json" in z.namelist()
+              assert not any(n.startswith("extension/") for n in z.namelist())
+          print(f"ZIP listo: {out}, {len(files)} archivos")
+          PY
+          for file in extension/*.js; do node --check "$file"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Google-Pro-Helper-Quetta-ES
+          path: Google-Pro-Helper-Quetta-ES.zip
+          retention-days: 30

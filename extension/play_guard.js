@@ -1,12 +1,12 @@
-/* Xi · Google AI Pro Offer Injector — 结账弹窗价格守卫
- * 作用：在 Play 结账 iframe 里读真实条款，绿条=免费试用可点，红条=要扣钱别点。
+/* Xi · Google AI Pro Offer Injector — Verificador de precios del diálogo de pago
+ * Lee las condiciones del diálogo de Google Play. Verde: posible promoción; rojo: posible cobro.
  */
 (() => {
-  if (window.__GAPT_GUARD || window.top === window) return; // 只在子框架里跑
+  if (window.__GAPT_GUARD || window.top === window) return; // Solo ejecutar dentro de un iframe
   window.__GAPT_GUARD = true;
 
-  const FREE_WORDS = ["free trial", "start your free trial", "免费试用", "US$0.00", "$0.00", "0,00", "€0.00", "won't be charged", "不会向您收费", "不会收费"];
-  const PAID_WORDS = ["/mo after", "/month after", "per month after", "立即付款", "pay now", "今日扣款", "charged today"];
+  const FREE_WORDS = ["free trial", "start your free trial", "免费试用", "US$0.00", "$0.00", "0,00", "€0.00", "won't be charged", "prueba gratuita", "sin cargo", "no se te cobrará", "不会向您收费", "不会收费"];
+  const PAID_WORDS = ["/mo after", "/month after", "per month after", "立即付款", "pay now", "pagar ahora", "se cobrará hoy", "cobro inmediato", "今日扣款", "charged today"];
 
   let bar = null;
   function paint(kind, text) {
@@ -34,13 +34,13 @@
     const paid = PAID_WORDS.some((w) => t.includes(w.toLowerCase()));
 
     if (free && !paid) {
-      paint("ok", "✅ 检测到免费试用 —— 本弹窗可安全订阅（请自己再核对金额为 $0.00）");
+      paint("ok", "✅ Se encontró una referencia a prueba gratuita. Verificá el importe y las condiciones antes de confirmar.");
     } else if (paid && !free) {
-      paint("bad", "❌ 未检出免费试用，可能是真扣费 —— 先别点订阅，返回换层重试");
+      paint("bad", "❌ No se identificó una prueba gratuita; podría haber un cobro. No confirmes sin verificar.");
     } else if (free && paid) {
-      paint("warn", "⚠️ 条款同时出现免费与付费字样 —— 请人工确认金额后再点");
+      paint("warn", "⚠️ Se detectaron referencias a cargos y promociones. Revisá el importe manualmente.");
     } else {
-      paint("warn", "… 未识别到价格条款（可能在加载中）");
+      paint("warn", "… No se reconocieron las condiciones de precio; es posible que todavía estén cargando.");
     }
   }
 

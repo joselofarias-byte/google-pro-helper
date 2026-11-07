@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <title>Google AI Pro · 自动化工作台</title>
+    <title>Google AI Pro · Panel de automatización</title>
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%237c5ce5'/%3E%3Cpath d='M20 7l4 9 9 4-9 4-4 9-4-9-9-4 9-4z' fill='white'/%3E%3C/svg%3E"
@@ -938,7 +938,7 @@
         scrollbar-color: #564963 transparent;
       }
       .terminal:empty::before {
-        content: "›  等待任务日志…";
+        content: "›  Esperando registros de tareas…";
         color: #867893;
       }
       .log-line {
@@ -1313,10 +1313,10 @@
         />
       </symbol>
     </svg>
-    <a class="skip-link" href="#main">跳至主要内容</a>
+    <a class="skip-link" href="#main">Ir al contenido principal</a>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="工作台导航">
-        <a class="brand" href="#overview" aria-label="AI Studio 工作台首页">
+      <aside class="sidebar" aria-label="Navegación del panel">
+        <a class="brand" href="#overview" aria-label="AI Studio Inicio del panel">
           <span class="brand-mark"
             ><svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg
           ></span>
@@ -1331,41 +1331,41 @@
         <nav class="side-nav">
           <a class="nav-link active" href="#overview"
             ><svg class="icon" aria-hidden="true"><use href="#i-grid" /></svg
-            >工作概览</a
+            >Resumen</a
           >
           <a class="nav-link" href="#settings"
             ><svg class="icon" aria-hidden="true"><use href="#i-sliders" /></svg
-            >全局配置</a
+            >Configuración general</a
           >
           <a class="nav-link" href="#accounts"
             ><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg
-            >账号队列</a
+            >Cola de cuentas</a
           >
           <a class="nav-link" href="#logs"
             ><svg class="icon" aria-hidden="true">
               <use href="#i-terminal" /></svg
-            >运行日志</a
+            >Registro de ejecución</a
           >
         </nav>
         <div class="sidebar-bottom">
           <div class="workspace-note">
             <svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg
-            ><strong>流程清晰，状态尽在掌握</strong>
-            <p>配置、账号与执行进度<br />集中在一个工作空间。</p>
+            ><strong>Proceso claro, estado bajo control</strong>
+            <p>Configuración, cuentas y progreso<br />en un mismo espacio de trabajo.</p>
           </div>
           <div class="sidebar-footer">
             <span class="local-avatar">AI</span
-            ><span>本地工作空间<small>Google AI Pro Console</small></span>
+            ><span>Espacio local<small>Google AI Pro Console</small></span>
           </div>
         </div>
       </aside>
       <main class="main-content" id="main">
         <header class="topbar">
           <div class="breadcrumb">
-            工作空间 <span>/</span> <strong>自动化控制台</strong>
+            Espacio de trabajo <span>/</span> <strong>Consola de automatización</strong>
           </div>
           <span class="connection" id="connectionStatus" role="status"
-            >正在连接</span
+            >Conectando</span
           >
         </header>
         <section id="overview" aria-labelledby="pageTitle">
@@ -1373,10 +1373,10 @@
             <div>
               <p class="eyebrow">YOUR AUTOMATION, SIMPLIFIED</p>
               <h1 id="pageTitle">
-                让每一步，都井然有序<span style="color: #9678ca">。</span>
+                Cada etapa, bajo control<span style="color: #9678ca">。</span>
               </h1>
               <p class="page-description">
-                Google AI Pro 自动化工作台 · 从账号导入到执行进度，一目了然。
+                Google AI Pro Panel de automatización · Desde la importación hasta el seguimiento de tareas.
               </p>
             </div>
             <span class="heading-tag"
@@ -1385,10 +1385,10 @@
               >GOOGLE AI PRO</span
             >
           </div>
-          <div class="stats-grid" aria-label="账号统计">
+          <div class="stats-grid" aria-label="Estadísticas de cuentas">
             <div class="stat-card">
               <div>
-                <div class="stat-label">账号总数</div>
+                <div class="stat-label">Total de cuentas</div>
                 <strong class="stat-value" id="statTotal">—</strong>
               </div>
               <span class="stat-icon"
@@ -1398,7 +1398,7 @@
             </div>
             <div class="stat-card">
               <div>
-                <div class="stat-label">正在执行</div>
+                <div class="stat-label">En ejecución</div>
                 <strong class="stat-value" id="statRunning">—</strong>
               </div>
               <span class="stat-icon"
@@ -1408,7 +1408,7 @@
             </div>
             <div class="stat-card">
               <div>
-                <div class="stat-label">已完成</div>
+                <div class="stat-label">Completadas</div>
                 <strong class="stat-value" id="statCompleted">—</strong>
               </div>
               <span class="stat-icon"
@@ -1418,7 +1418,7 @@
             </div>
             <div class="stat-card">
               <div>
-                <div class="stat-label">需要关注</div>
+                <div class="stat-label">Requieren atención</div>
                 <strong class="stat-value" id="statAttention">—</strong>
               </div>
               <span class="stat-icon"
@@ -1431,36 +1431,36 @@
             <div class="section-heading">
               <div>
                 <h2>
-                  执行流程 <span class="section-caption">/ WORKFLOW</span>
+                  Flujo de ejecución <span class="section-caption">/ WORKFLOW</span>
                 </h2>
-                <p>五个步骤，串联完整任务流程</p>
+                <p>Cinco etapas del proceso</p>
               </div>
               <button class="btn-danger btn-sm" onclick="stopAll()">
                 <svg class="icon icon-sm" aria-hidden="true">
                   <use href="#i-stop" /></svg
-                >停止全部任务
+                >Detener todas las tareas
               </button>
             </div>
             <div class="pipeline-bar">
               <div class="pipe-item">
-                <span class="step-number">01</span><strong>登录与验证</strong
-                ><span>账号登录 · 邮箱 / 2FA</span>
+                <span class="step-number">01</span><strong>Inicio de sesión y verificación</strong
+                ><span>Acceso a la cuenta · Correo / 2FA</span>
               </div>
               <div class="pipe-item">
-                <span class="step-number">02</span><strong>首层 12 个月</strong
-                ><span>Pro 5 TB · 首层试用</span>
+                <span class="step-number">02</span><strong>Primera etapa: 12 meses</strong
+                ><span>Pro 5 TB · Prueba inicial</span>
               </div>
               <div class="pipe-item">
-                <span class="step-number">03</span><strong>二层 6 个月</strong
-                ><span>延长至 18 个月</span>
+                <span class="step-number">03</span><strong>Segunda etapa: 6 meses</strong
+                ><span>Extensión hasta 18 meses</span>
               </div>
               <div class="pipe-item">
-                <span class="step-number">04</span><strong>三层 6 个月</strong
-                ><span>延长至 24 个月</span>
+                <span class="step-number">04</span><strong>Tercera etapa: 6 meses</strong
+                ><span>Extensión hasta 24 meses</span>
               </div>
               <div class="pipe-item">
-                <span class="step-number">05</span><strong>取消自动续订</strong
-                ><span>取消续订 · 截图核验</span>
+                <span class="step-number">05</span><strong>Cancelar renovación automática</strong
+                ><span>Cancelar renovación · Verificación mediante captura</span>
               </div>
             </div>
           </div>
@@ -1473,62 +1473,62 @@
                   <span class="section-icon"
                     ><svg class="icon icon-sm" aria-hidden="true">
                       <use href="#i-sliders" /></svg></span
-                  >全局配置
+                  >Configuración general
                 </h2>
-                <p class="card-subtitle">设置执行方案、支付信息与网络</p>
+                <p class="card-subtitle">Configurá el plan, el pago y la conexión</p>
               </div>
               <button class="btn-sm btn-secondary" onclick="saveConfig()">
                 <svg class="icon icon-sm" aria-hidden="true">
                   <use href="#i-save" /></svg
-                >保存配置
+                >Guardar configuración
               </button>
             </div>
             <div class="form-grid">
               <div class="form-group col-2">
-                <label for="cfgTargetRegion">目标地区</label
+                <label for="cfgTargetRegion">Región de destino</label
                 ><select
                   id="cfgTargetRegion"
                   onchange="onRegionChange(this.value)"
                 >
-                  <option value="US">美国 · USD / 俄勒冈 97201</option>
+                  <option value="US">Estados Unidos · USD / Oregón 97201</option>
                 </select>
               </div>
               <div class="form-group col-2">
-                <label for="cfgTargetPlan">执行方案</label
+                <label for="cfgTargetPlan">Plan de ejecución</label
                 ><select id="cfgTargetPlan">
                   <option value="pro_2year_zero">
-                    Google AI Pro · 24 个月 / 5 TB
+                    Google AI Pro · 24 meses / 5 TB
                   </option>
                 </select>
               </div>
               <div class="form-group col-2">
-                <label for="cfgCardNumber">支付卡号</label
+                <label for="cfgCardNumber">Número de tarjeta</label
                 ><input
                   type="text"
                   id="cfgCardNumber"
-                  placeholder="Visa / Mastercard 卡号"
+                  placeholder="Visa / Mastercard Número de tarjeta"
                   autocomplete="off"
                 />
               </div>
               <div class="form-group">
-                <label for="cfgExpMonth">有效期</label>
+                <label for="cfgExpMonth">Vencimiento</label>
                 <div class="input-pair">
                   <input
                     type="text"
                     id="cfgExpMonth"
-                    placeholder="月"
-                    aria-label="有效期月份"
+                    placeholder="Mes"
+                    aria-label="Mes de vencimiento"
                   /><span>/</span
                   ><input
                     type="text"
                     id="cfgExpYear"
-                    placeholder="年"
-                    aria-label="有效期年份"
+                    placeholder="Año"
+                    aria-label="Año de vencimiento"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="cfgCvc">安全码</label
+                <label for="cfgCvc">Código de seguridad</label
                 ><input
                   type="password"
                   id="cfgCvc"
@@ -1537,33 +1537,33 @@
                 />
               </div>
               <div class="form-group">
-                <label for="cfgHolder">持卡人</label
-                ><input type="text" id="cfgHolder" placeholder="英文姓名" />
+                <label for="cfgHolder">Titular</label
+                ><input type="text" id="cfgHolder" placeholder="Nombre en caracteres latinos" />
               </div>
               <div class="form-group col-2">
-                <label for="cfgAddr">账单地址</label
+                <label for="cfgAddr">Dirección de facturación</label
                 ><input type="text" id="cfgAddr" placeholder="Address Line 1" />
               </div>
               <div class="form-group">
-                <label for="cfgZip">邮编 / 州</label>
+                <label for="cfgZip">Código postal / Estado</label>
                 <div class="input-pair">
                   <input
                     type="text"
                     id="cfgZip"
                     placeholder="97201"
-                    aria-label="账单邮编"
+                    aria-label="Código postal de facturación"
                   /><input
                     type="text"
                     id="cfgProvince"
                     placeholder="OR"
-                    aria-label="账单所在州"
+                    aria-label="Estado de facturación"
                   />
                 </div>
               </div>
               <div class="form-group col-4 proxy-group">
                 <div class="field-heading">
                   <label for="cfgProxyTemplate"
-                    >网络代理 <span style="color: #aaa2b5">/ 可选</span></label
+                    >Proxy de red <span style="color: #aaa2b5">/ Opcional</span></label
                   ><button
                     class="btn-sm btn-secondary"
                     id="btnTestProxy"
@@ -1571,23 +1571,23 @@
                   >
                     <svg class="icon icon-sm" aria-hidden="true">
                       <use href="#i-globe" /></svg
-                    >测试连通性
+                    >Probar conexión
                   </button>
                 </div>
                 <input
                   type="text"
                   id="cfgProxyTemplate"
-                  placeholder="留空使用本机网络，或填入代理地址"
+                  placeholder="Dejá vacío para usar la red local o ingresá un proxy"
                 />
                 <div id="proxyTestResult" role="status">
-                  未配置代理时，使用本机当前网络。
+                  Sin proxy se utiliza la conexión local.
                 </div>
               </div>
             </div>
             <label class="checkbox-row"
               ><input type="checkbox" id="cfgAutoCancel" checked /><span
-                ><strong>完成后自动取消续订</strong> · Step 5 前往 Google Play
-                处理</span
+                ><strong>Al finalizar, automáticamenteCancelar renovación</strong> · Step 5 Ir a Google Play
+                Procesar</span
               ></label
             >
           </section>
@@ -1602,31 +1602,31 @@
                   <span class="section-icon"
                     ><svg class="icon icon-sm" aria-hidden="true">
                       <use href="#i-upload" /></svg></span
-                  >导入账号
+                  >Importar cuentas
                 </h2>
-                <p class="card-subtitle">批量添加账号，统一管理执行</p>
+                <p class="card-subtitle">Agregá cuentas y gestioná su ejecución</p>
               </div>
               <span class="section-caption">BATCH IMPORT</span>
             </div>
             <label class="format-label" for="importText"
-              >账号信息<span>每行一个账号</span></label
+              >Información de la cuenta<span>Una cuenta por línea</span></label
             >
             <textarea
               id="importText"
               spellcheck="false"
-              placeholder="在这里粘贴账号信息…&#10;&#10;邮箱----密码----辅助邮箱&#10;邮箱----密码----2FA 密钥&#10;邮箱----密码----辅助邮箱----2FA 密钥"
+              placeholder="Pegá aquí los datos de las cuentas…&#10;&#10;Correo----Contraseña----Correo de recuperación&#10;Correo----Contraseña----2FA Clave&#10;Correo----Contraseña----Correo de recuperación----2FA Clave"
             ></textarea>
             <div class="format-hint">
-              支持辅助邮箱与 2FA 账号，自动识别分隔符。<br /><code
-                >分隔符：---- &nbsp; / &nbsp; — &nbsp; | &nbsp; 空格</code
+              Admite correo de recuperación y 2FA; detecta separadores.<br /><code
+                >Separadores：---- &nbsp; / &nbsp; — &nbsp; | &nbsp; Espacio</code
               >
             </div>
             <button class="import-button" onclick="importAccounts()">
               <svg class="icon icon-sm" aria-hidden="true">
                 <use href="#i-upload" /></svg
-              >导入账号列表
+              >Importar lista de cuentas
             </button>
-            <p class="import-footnote">导入后可在下方队列中选择起始步骤</p>
+            <p class="import-footnote">Después de importar, seleccioná la etapa inicial en la cola</p>
           </section>
         </div>
         <section
@@ -1640,47 +1640,47 @@
                 <span class="section-icon"
                   ><svg class="icon icon-sm" aria-hidden="true">
                     <use href="#i-users" /></svg></span
-                >账号队列
+                >Cola de cuentas
               </h2>
-              <p class="card-subtitle">查看状态与进度，按需执行任务</p>
+              <p class="card-subtitle">Consultá el estado y ejecutá tareas cuando corresponda</p>
             </div>
-            <span id="summaryStats">正在读取账号…</span>
+            <span id="summaryStats">Consultando cuentas…</span>
           </div>
           <div class="section-heading">
-            <label for="batchStartStep" class="field-help">批量执行起点</label>
+            <label for="batchStartStep" class="field-help">Etapa inicial del lote</label>
             <div
               style="display: flex; align-items: center; gap: 8px; min-width: 0"
             >
-              <select id="batchStartStep" aria-label="批量执行的起始步骤">
-                <option value="1">Step 1 · 完整流程</option>
-                <option value="2">Step 2 · 首层 12 个月</option>
-                <option value="3">Step 3 · 二层 6 个月</option>
-                <option value="4">Step 4 · 三层 6 个月</option>
-                <option value="5">Step 5 · 仅取消续订</option></select
+              <select id="batchStartStep" aria-label="Etapa inicial de ejecución por lotes">
+                <option value="1">Step 1 · Proceso completo</option>
+                <option value="2">Step 2 · Primera etapa: 12 meses</option>
+                <option value="3">Step 3 · Segunda etapa: 6 meses</option>
+                <option value="4">Step 4 · Tercera etapa: 6 meses</option>
+                <option value="5">Step 5 · Solo cancelar renovación</option></select
               ><button id="btnBatchRun" onclick="runBatch()">
                 <svg class="icon icon-sm" aria-hidden="true">
                   <use href="#i-play" /></svg
-                >批量执行
+                >Ejecutar lote
               </button>
             </div>
           </div>
           <div
             class="table-wrap"
             role="region"
-            aria-label="账号队列表格，可横向滚动"
+            aria-label="Tabla de cuentas con desplazamiento horizontal"
             tabindex="0"
           >
             <table>
               <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>账号信息</th>
-                  <th>验证方式</th>
-                  <th>状态</th>
-                  <th>执行进度</th>
-                  <th>当前到期日</th>
-                  <th>核验截图</th>
-                  <th>操作</th>
+                  <th>Identificador</th>
+                  <th>Información de la cuenta</th>
+                  <th>Método de verificación</th>
+                  <th>Estado</th>
+                  <th>Progreso</th>
+                  <th>Vencimiento actual</th>
+                  <th>Captura de verificación</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody id="accountsTbody"></tbody>
@@ -1693,26 +1693,26 @@
               <span class="section-icon"
                 ><svg class="icon icon-sm" aria-hidden="true">
                   <use href="#i-terminal" /></svg></span
-              >运行日志
+              >Registro de ejecución
             </h2>
-            <span class="live-indicator">自动刷新 · 1.5 s</span>
+            <span class="live-indicator">Actualización automática · 1.5 s</span>
           </div>
           <div
             class="terminal"
             id="logTerminal"
             role="region"
-            aria-label="实时执行日志"
+            aria-label="Registro de ejecución en tiempo real"
             tabindex="0"
           ></div>
           <p class="log-note">
             <svg class="icon icon-sm" aria-hidden="true">
               <use href="#i-alert" /></svg
-            >遇到人机验证时，请在弹出的浏览器中完成验证，任务将继续。
+            >Si aparece una verificación humana, completala en el navegador abierto para continuar.
           </p>
         </section>
         <footer class="page-footer">
           <span>AI STUDIO · GOOGLE AI PRO WORKSPACE</span
-          ><span>专注流程，轻松掌控。</span>
+          ><span>Controlá cada etapa con claridad.</span>
         </footer>
       </main>
     </div>
@@ -1723,12 +1723,12 @@
       onclick="if (event.target === this) closeModal()"
     >
       <div class="modal-heading">
-        <strong id="modalTitle">核验截图预览</strong
+        <strong id="modalTitle">Vista previa de captura</strong
         ><button class="btn-sm btn-secondary" onclick="closeModal()">
-          关闭
+          Cerrar
         </button>
       </div>
-      <img id="modalImg" alt="账号任务的最新核验截图" />
+      <img id="modalImg" alt="Última captura de verificación de la cuenta" />
     </dialog>
     <script>
       let configInitialized = false;
@@ -1784,7 +1784,7 @@
           ).length;
           const running = data.active_count || 0;
           document.getElementById("summaryStats").textContent =
-            `共 ${total} 个账号 · 已完成 ${done} · 执行中 ${running}`;
+            `Total: ${total} cuentas · Completadas ${done} · En ejecución ${running}`;
           document.getElementById("statTotal").textContent = total;
           document.getElementById("statRunning").textContent = running;
           document.getElementById("statCompleted").textContent = done;
@@ -1795,7 +1795,7 @@
           ).length;
           const connection = document.getElementById("connectionStatus");
           connection.className = "connection is-online";
-          connection.textContent = "本地服务已连接";
+          connection.textContent = "Servicio local conectado";
         } catch (e) {
           if (requestSequence < appliedStateSequence) {
             return;
@@ -1803,19 +1803,19 @@
           appliedStateSequence = requestSequence;
           const connection = document.getElementById("connectionStatus");
           connection.className = "connection is-offline";
-          connection.textContent = "连接中断 · 正在重试";
+          connection.textContent = "Conexión interrumpida; reintentando";
           console.error("State poll error:", e);
         }
       }
 
       function statusBadgeHtml(status) {
         const map = {
-          pending: ["status-pending", "待执行"],
-          running: ["status-running", "执行中"],
-          waiting_human: ["status-waiting_human", "等待验证"],
-          completed: ["status-completed", "已完成"],
-          error: ["status-error", "异常中断"],
-          stopped: ["status-pending", "已停止"],
+          pending: ["status-pending", "Pendiente"],
+          running: ["status-running", "En ejecución"],
+          waiting_human: ["status-waiting_human", "Esperando verificación"],
+          completed: ["status-completed", "Completadas"],
+          error: ["status-error", "Interrupción por error"],
+          stopped: ["status-pending", "Detenido"],
         };
         const [cls, label] = map[status] || ["status-pending", status];
         return `<span class="status-badge ${cls}">${label}</span>`;
@@ -1843,16 +1843,16 @@
           .map((acc) => {
             const savedStart = selectedStartSteps[acc.id] || 1;
             const shotBtn = acc.last_screenshot
-              ? `<button class="btn-sm btn-secondary" onclick="showScreenshot('${acc.id}', '${acc.last_screenshot}')">查看</button>`
+              ? `<button class="btn-sm btn-secondary" onclick="showScreenshot('${acc.id}', '${acc.last_screenshot}')">Ver</button>`
               : `<span style="color:var(--muted);font-size:12px;">-</span>`;
 
             const totpHtml =
               acc.totp_secret && acc.totp_now && acc.totp_now !== "------"
-                ? `<button type="button" class="totp-pill" onclick="copyText('${acc.totp_now}')" title="点击复制 6 位动态验证码">
+                ? `<button type="button" class="totp-pill" onclick="copyText('${acc.totp_now}')" title="Copiar código temporal de 6 dígitos">
                  <span>${acc.totp_now}</span>
                  <span class="totp-rem">${acc.totp_rem}s</span>
                </button>`
-                : `<span class="account-recovery">辅助邮箱</span>`;
+                : `<span class="account-recovery">Correo de recuperación</span>`;
 
             return `
             <tr>
@@ -1860,9 +1860,9 @@
               <td>
                 <div class="account-email">${acc.email}</div>
                 <div class="account-meta">
-                  密码: ${acc.password}
-                  ${acc.recovery_email ? `<br/>辅助: ${acc.recovery_email}` : ""}
-                  ${acc.ip_info ? `<span class="account-network">[${acc.ip_info}]</span>` : acc.proxy ? `<span class="account-network">[独立代理]</span>` : ""}
+                  Contraseña: ${acc.password}
+                  ${acc.recovery_email ? `<br/>Recuperación: ${acc.recovery_email}` : ""}
+                  ${acc.ip_info ? `<span class="account-network">[${acc.ip_info}]</span>` : acc.proxy ? `<span class="account-network">[Proxy individual]</span>` : ""}
                 </div>
               </td>
               <td>${totpHtml}</td>
@@ -1883,37 +1883,37 @@
                     style="padding:4px 6px; font-size:12px;"
                     onchange="selectedStartSteps['${acc.id}'] = parseInt(this.value)"
                   >
-                    <option value="1" ${savedStart === 1 ? "selected" : ""}>从 Step 1 全跑</option>
-                    <option value="2" ${savedStart === 2 ? "selected" : ""}>从 Step 2 首层12M($0)</option>
-                    <option value="3" ${savedStart === 3 ? "selected" : ""}>从 Step 3 二层6M($0)</option>
-                    <option value="4" ${savedStart === 4 ? "selected" : ""}>从 Step 4 三层封顶($0)</option>
-                    <option value="5" ${savedStart === 5 ? "selected" : ""}>从 Step 5 退订锁死</option>
+                    <option value="1" ${savedStart === 1 ? "selected" : ""}>Desde el paso 1 proceso completo</option>
+                    <option value="2" ${savedStart === 2 ? "selected" : ""}>Desde el paso 2 primera etapa 12 meses($0)</option>
+                    <option value="3" ${savedStart === 3 ? "selected" : ""}>Desde el paso 3 segunda etapa 6 meses($0)</option>
+                    <option value="4" ${savedStart === 4 ? "selected" : ""}>Desde el paso 4 tercera etapa($0)</option>
+                    <option value="5" ${savedStart === 5 ? "selected" : ""}>Desde el paso 5 cancelación de renovación</option>
                   </select>
                   <button
                     class="btn-sm ${acc.is_running ? "btn-danger" : "btn-success"}"
                     onclick="${acc.is_running ? `stopSingle('${acc.id}')` : `runSingle('${acc.id}')`}"
                   >
-                    ${acc.is_running ? "停止" : "启动"}
+                    ${acc.is_running ? "Detener" : "Iniciar"}
                   </button>
                   <button
                     class="btn-sm ${openedBrowserMap[acc.id] ? "btn-success" : "btn-secondary"}"
                     onclick="openBrowser('${acc.id}')"
-                    title="手动打开该账号的独立 Chrome 窗口"
+                    title="Abrir ventana independiente de Chrome para esta cuenta"
                   >
-                    ${openedBrowserMap[acc.id] ? "已打开" : "浏览器"}
+                    ${openedBrowserMap[acc.id] ? "Abierto" : "Navegador"}
                   </button>
-                  <button class="btn-sm btn-secondary" onclick="resetAccount('${acc.id}')" title="重置状态为待执行">
-                    重置
+                  <button class="btn-sm btn-secondary" onclick="resetAccount('${acc.id}')" title="Restablecer estado a pendiente">
+                    Restablecer
                   </button>
-                  <button class="btn-sm btn-secondary" onclick="deleteAccount('${acc.id}')" title="移除此账号">
-                    移除
+                  <button class="btn-sm btn-secondary" onclick="deleteAccount('${acc.id}')" title="Eliminar esta cuenta">
+                    Eliminar
                   </button>
                   <button
                     class="btn-sm ${copiedAccountMap[acc.id] ? "btn-success" : "btn-secondary"}"
                     onclick="copyAccountFull('${acc.id}', '${acc.email}', '${acc.password}', '${acc.totp_secret || acc.recovery_email || ""}')"
-                    title="一键复制账号信息"
+                    title="Copiar información de la cuenta"
                   >
-                    ${copiedAccountMap[acc.id] ? "已复制" : "复制"}
+                    ${copiedAccountMap[acc.id] ? "Copiado" : "Copiar"}
                   </button>
                 </div>
               </td>
@@ -1922,7 +1922,7 @@
           });
         if (rows.length === 0) {
           rows.push(
-            '<tr><td colspan="8" class="empty-state"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg><strong>准备好开始了吗？</strong><p>先在<a href="#import">导入账号</a>区域添加账号，执行进度会显示在这里。</p></td></tr>',
+            '<tr><td colspan="8" class="empty-state"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg><strong>¿Listo para comenzar?</strong><p>Primero agregá cuentas en<a href="#import">Importar cuentas</a>; aquí aparecerá el progreso.</p></td></tr>',
           );
         }
         // Keep unchanged rows alive so polling does not interrupt their controls.
@@ -1948,9 +1948,9 @@
         const html = logs
           .map((line) => {
             let cls = "log-line";
-            if (line.includes("⚠️") || line.includes("人机验证"))
+            if (line.includes("⚠️") || line.includes("verificación humana"))
               cls += " log-warn";
-            else if (line.includes("❌") || line.includes("异常"))
+            else if (line.includes("❌") || line.includes("error"))
               cls += " log-err";
             else if (line.includes("✅") || line.includes("🎉"))
               cls += " log-ok";
@@ -1986,9 +1986,9 @@
         const btn = document.getElementById("btnTestProxy");
         const resBox = document.getElementById("proxyTestResult");
         btn.disabled = true;
-        btn.textContent = "正在检测…";
+        btn.textContent = "Comprobando…";
         resBox.style.color = "#7555d9";
-        resBox.textContent = "正在测试代理连通性...";
+        resBox.textContent = "Probando conexión del proxy...";
         try {
           const region = document.getElementById("cfgTargetRegion").value;
           const tpl = document.getElementById("cfgProxyTemplate").value.trim();
@@ -2010,10 +2010,10 @@
           }
         } catch (e) {
           resBox.style.color = "#c34b5b";
-          resBox.textContent = "❌ 请求异常: " + e;
+          resBox.textContent = "❌ Error de solicitud: " + e;
         } finally {
           btn.disabled = false;
-          btn.textContent = "测试连通性";
+          btn.textContent = "Probar conexión";
           fetchState();
         }
       }
@@ -2054,7 +2054,7 @@
 
       async function importAccounts() {
         const raw = document.getElementById("importText").value.trim();
-        if (!raw) return alert("请先在文本框中粘贴要导入的账号！");
+        if (!raw) return alert("Primero pegá las cuentas que querés importar.");
         const res = await fetch("/api/accounts/import", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -2077,7 +2077,7 @@
         const cvc = document.getElementById("cfgCvc").value.trim();
         if (num.length < 12 || !expM || !expY || !cvc) {
           alert(
-            "⚠️ 请先在左侧【全局配置与内联免税绑卡】中填写您的支付卡信息（卡号、有效期月/年、CVC 安全码）后再开始执行！",
+            "⚠️ Antes de ejecutar, completá los datos de pago en Configuración general (número, vencimiento y CVC).",
           );
           document.getElementById("cfgCardNumber").focus();
           return false;
@@ -2099,7 +2099,7 @@
         });
         if (!res.ok) {
           const err = await res.json();
-          alert(err.detail || "启动失败");
+          alert(err.detail || "No se pudo iniciar");
         }
         fetchState();
       }
@@ -2117,7 +2117,7 @@
         });
         if (!res.ok) {
           const err = await res.json();
-          alert(err.detail || "批量启动失败");
+          alert(err.detail || "No se pudo iniciar el lote");
         }
         fetchState();
       }
@@ -2160,7 +2160,7 @@
       }
 
       async function deleteAccount(accountId) {
-        if (!confirm(`确定要从列表中移除账号 ${accountId} 吗？`)) return;
+        if (!confirm(`¿Confirmás que querés eliminar la cuenta ${accountId} de la lista?`)) return;
         await fetch("/api/accounts/delete", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -2171,7 +2171,7 @@
 
       function showScreenshot(accId, filename) {
         document.getElementById("modalTitle").textContent =
-          `${accId} 最新核验截图 (${filename})`;
+          `${accId} Última captura de verificación (${filename})`;
         document.getElementById("modalImg").src =
           `/screenshots/${filename}?t=${Date.now()}`;
         document.getElementById("imgModal").showModal();

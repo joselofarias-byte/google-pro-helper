@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="light">
-<title>Google AI Pro · 注入器</title>
+<title>Google AI Pro · Panel de extensión</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -46,31 +46,31 @@
 </style>
 </head>
 <body>
-  <h1>Google AI Pro 2 年 · 注入器</h1>
-  <div class="sub">先在浏览器登录好目标号（美国区），再选层</div>
+  <h1>Google AI Pro · Extensión</h1>
+  <div class="sub">Iniciá sesión en la cuenta correspondiente y seleccioná una opción.</div>
 
   <div class="box">
-    <div class="lbl">注入层（选完自动生效，回页面刷新一次）</div>
-    <label class="row"><input type="radio" name="layer" value="off"><span class="t">关闭注入</span></label>
-    <label class="row"><input type="radio" name="layer" value="12m"><span class="t">第一层 · 12 个月</span><span class="tag">首订</span></label>
-    <label class="row"><input type="radio" name="layer" value="6m_ss"><span class="t">第二层 · 6 个月（SS）</span><span class="tag">叠加</span></label>
-    <label class="row"><input type="radio" name="layer" value="6m"><span class="t">第三层 · 6 个月</span><span class="tag">叠加</span></label>
-    <label class="row"><input type="radio" name="layer" value="6m_2"><span class="t">备用 · 6 个月（备）</span><span class="tag">替补</span></label>
+    <div class="lbl">Configuración (actualizá la página después de cambiarla)</div>
+    <label class="row"><input type="radio" name="layer" value="off"><span class="t">Desactivar</span></label>
+    <label class="row"><input type="radio" name="layer" value="12m"><span class="t">Primera etapa · 12 meses</span><span class="tag">Inicial</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m_ss"><span class="t">Segunda etapa · 6 meses (SS)</span><span class="tag">Adicional</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m"><span class="t">Tercera etapa · 6 meses</span><span class="tag">Adicional</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m_2"><span class="t">Alternativa · 6 meses</span><span class="tag">Reserva</span></label>
   </div>
 
-  <div id="state" class="warn" role="status" aria-live="polite">当前页面未检测到注入</div>
+  <div id="state" class="warn" role="status" aria-live="polite">No se detecta la extensión activa en esta página</div>
 
   <ol>
-    <li>打开 <b>one.google.com/plans</b>，确认左上是目标邮箱</li>
-    <li>在上面选层 → 刷新页面 → 右下角出现「注入已挂载」</li>
-    <li>点 AI Pro 卡片的 <b>Get discount</b>，弹出 Play 结账窗</li>
-    <li>看弹窗顶部横幅：<b>绿=免费可订</b>，红=别点</li>
-    <li>加卡（美国免税邮编 97201）→ 核对金额 $0.00 → 订阅</li>
-    <li>叠下一层：回来换层 → 刷新 → 再点一次</li>
-    <li>全部完成后去 play.google.com 取消自动续订</li>
+    <li>Abrí <b>one.google.com/plans</b> y comprobá la cuenta activa.</li>
+    <li>Seleccioná una opción y actualizá la página para comprobar su estado.</li>
+    <li>Consultá los detalles de la oferta en Google One antes de continuar.</li>
+    <li>Revisá el aviso superior: verde indica posible promoción; rojo, posible cobro.</li>
+    <li>Comprobá el importe, la moneda y las condiciones reales antes de confirmar.</li>
+    <li>Si cambiás la configuración, actualizá la página.</li>
+    <li>Gestioná la renovación automática desde play.google.com.</li>
   </ol>
 
-  <div class="foot"><span>自用工具</span><a href="https://t.me/pk_oa" target="_blank">t.me/pk_oa</a></div>
+  <div class="foot"><span>Herramienta de uso personal</span><a href="https://t.me/pk_oa" target="_blank">t.me/pk_oa</a></div>
   <script src="popup.js"></script>
 </body>
 </html>
