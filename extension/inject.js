@@ -49,10 +49,10 @@
 
   function refreshBadge() {
     if (!currentTest) {
-      showBadge("注入器：未启用", "#f5f5f5");
+      showBadge("Extensión: desactivada", "#f5f5f5");
     } else {
-      const label = { "12m": "12 个月", "6m_ss": "6 个月（SS）", "6m": "6 个月", "6m_2": "6 个月（备）" }[currentTest.layer] || currentTest.layer;
-      showBadge("注入已挂载 · " + label + (subId ? " · 续订叠加" : ""), "#eaf7ea");
+      const label = { "12m": "12 meses", "6m_ss": "6 meses (SS)", "6m": "6 meses", "6m_2": "6 meses (reserva)" }[currentTest.layer] || currentTest.layer;
+      showBadge("Extensión activa · " + label + (subId ? " · Extensión de suscripción" : ""), "#eaf7ea");
     }
   }
 
